@@ -3,7 +3,7 @@ import java.util.Scanner; // Import Scanner class for user input
 // Main class to run the program
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in); // Create a Scanner object for user input
+        Scanner scanner = new Scanner(System.in); // Create a Scanner object for input user
 
         // Create two BankAccount objects with an initial balance of 0
         BankAccount account1 = new BankAccount("202410370110382", "Razky", 0);

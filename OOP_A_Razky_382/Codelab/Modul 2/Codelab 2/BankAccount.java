@@ -33,7 +33,7 @@ class BankAccount {
         System.out.println("Enter the amount to withdraw for " + ownerName + ": ");
         amount = scanner.nextDouble(); // Get withdrawal amount from user input
 
-        // Check if the withdrawal amount is valid and does not exceed the balance
+        // Checking if the withdrawal amount is valid and does not exceed the balance
         if (amount > 0 && amount <= balance) {
             balance -= amount; // Subtract the withdrawal amount from balance
             System.out.println(ownerName + " withdrew Rp" + amount + ". (Success) Current balance: Rp" + balance + "\n");
