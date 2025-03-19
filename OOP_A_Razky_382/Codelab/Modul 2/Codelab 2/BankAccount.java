@@ -1,46 +1,52 @@
-import java.util.Scanner;
+import java.util.Scanner; // Import Scanner class for user input
 
+// Define the BankAccount class to represent a bank account
 class BankAccount {
-    String accountNumber, ownerName;
-    double balance;
-    Scanner scanner;
+    String accountNumber, ownerName; // Store account number and owner's name
+    double balance; // Store account balance
+    Scanner scanner; // Scanner for user input
 
+    // Constructor to initialize an account with account number, owner name, and initial balance
     public BankAccount(String accountNumber, String ownerName, double balance) {
         this.accountNumber = accountNumber;
         this.ownerName = ownerName;
         this.balance = balance;
-        this.scanner = new Scanner(System.in);
+        this.scanner = new Scanner(System.in); // Create a Scanner object for input
     }
 
+    // Method to deposit money into the account
     public void depositMoney(double amount) {
-        System.out.println("Masukkan uang yang akan disetor untuk " + ownerName + ": ");
-        amount = scanner.nextDouble();
+        System.out.println("Enter the amount to deposit for " + ownerName + ": ");
+        amount = scanner.nextDouble(); // Get deposit amount from user input
 
+        // Check if the deposit amount is greater than zero
         if (amount > 0) {
-            balance += amount;
-            System.out.println(ownerName + " menyetor Rp" + amount + ". Saldo sekarang: Rp" + balance);
+            balance += amount; // Add deposit amount to balance
+            System.out.println(ownerName + " deposited Rp" + amount + ". Current balance: Rp" + balance);
         } else {
-            System.out.println("Saldo tidak dapat dikurangi");
+            System.out.println("Deposit amount must be greater than 0!"); // Display error if the amount is invalid
         }
     }
-    
+
+    // Method to withdraw money from the account
     public void withdrawMoney(double amount) {
-        System.out.println("Masukkan uang yang akan ditarik untuk " + ownerName + ": ");
-        amount = scanner.nextDouble();
+        System.out.println("Enter the amount to withdraw for " + ownerName + ": ");
+        amount = scanner.nextDouble(); // Get withdrawal amount from user input
 
+        // Check if the withdrawal amount is valid and does not exceed the balance
         if (amount > 0 && amount <= balance) {
-            balance -= amount;
-            System.out.println(ownerName + " menarik Rp" + amount + ". (Berhasil) Saldo sekarang: Rp" + balance  + "\n");
+            balance -= amount; // Subtract the withdrawal amount from balance
+            System.out.println(ownerName + " withdrew Rp" + amount + ". (Success) Current balance: Rp" + balance + "\n");
         } else if (amount > balance) {
-            System.out.println(ownerName + " menarik Rp" + amount + ". (Gagal, Saldo tidak mencukupi) Saldo saat ini: Rp" + balance + "\n");
+            System.out.println(ownerName + " attempted to withdraw Rp" + amount + ". (Failed, insufficient balance) Current balance: Rp" + balance + "\n");
         }
     }
 
+    // Method to display account information
     public void displayInfo() {
-        System.out.println("Nomor Rekening: " + accountNumber);
-        System.out.println("Nama Pemilik: " + ownerName);
-        System.out.println("Saldo: " + balance);
+        System.out.println("Account Number: " + accountNumber);
+        System.out.println("Account Owner: " + ownerName);
+        System.out.println("Balance: Rp" + balance);
         System.out.println();
     }
-
 }
