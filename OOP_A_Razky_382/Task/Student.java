@@ -1,27 +1,25 @@
 import java.util.Scanner;
 
-public class Student {
-    String name, nim;
-    Scanner scanner = new Scanner(System.in);
+public class Student extends User {
 
-    public void loginStudent() {
-        System.out.print("Enter your name: ");
-        name = scanner.nextLine();
-
-        System.out.print("Enter your NIM: ");
-        nim = scanner.nextLine();
-
-        if(nim.equals("202410370110382") && name.equals("Razky")) {
-            System.out.println("Login Successful");
-            displayInfo();
-        } else {
-            System.out.println("Login Failed");
-        }
+    public Student(String name, String studentID) {
+        super(name, studentID);
     }
 
+    @Override
+    public boolean login() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter your full name: ");
+        String inputName = scanner.nextLine();
+        System.out.print("Enter your Student ID: ");
+        String inputID = scanner.nextLine();
+
+        return getName().equalsIgnoreCase(inputName) && getStudentID().equals(inputID);
+    }
+
+    @Override
     public void displayInfo() {
-        System.out.println("\nName: " + name);
-        System.out.println("NIM: " + nim);
-        System.out.println();
+        System.out.println("Student Login Successful!\n");
+        super.displayInfo();
     }
 }
