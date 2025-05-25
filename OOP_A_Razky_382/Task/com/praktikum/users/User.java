@@ -10,7 +10,10 @@ public abstract class User {
         this.password = password;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
     public abstract boolean login(String username, String password);
     public abstract void displayAppMenu(Scanner scanner);
-
 }
